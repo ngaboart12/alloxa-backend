@@ -1,6 +1,7 @@
 import express, {Express} from "express"
 import dotenv from "dotenv"
 import userRoute from "./routes/user"
+import cors from "cors"
 
 const app:Express = express()
 
@@ -12,7 +13,11 @@ import OrderRoute from "./routes/Order"
 
 const PORT  = process.env.PORT || 5000
 
+app.use(cors())
 app.use(express.json())
+app.get('/', (req,res)=>{
+    res.send("hello")
+})
 app.use('/auth', userRoute)
 app.use('/product', ProductRoute)
 app.use('/badge', badgeRoute)
