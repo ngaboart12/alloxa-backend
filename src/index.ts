@@ -1,4 +1,4 @@
-import express, {Express} from "express"
+import express, {Express,Request,Response, NextFunction} from "express"
 import dotenv from "dotenv"
 import userRoute from "./routes/user"
 import cors from "cors"
@@ -15,7 +15,13 @@ import PaymentRouter from "./routes/Payment"
 const PORT  = process.env.PORT || 5000
 
 app.use(cors())
-app.use(express.json())
+app.use((req:Request, res:Response, next:NextFunction) => {
+    if (req.originalUrl === '/webhook') {
+      next();
+    } else {
+      express.json()(req, res, next);
+    }
+  });
 app.get('/', (req,res)=>{
     res.send("hello")
 })
