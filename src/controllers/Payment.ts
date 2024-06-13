@@ -24,8 +24,8 @@ export const checkout = async (req:Request,res:Response)=>{
         const session = await stripe.checkout.sessions.create({
             line_items,
             mode: 'payment',
-            success_url: 'https://payment-p5w9.onrender.com/success',
-            cancel_url: 'https://payment-p5w9.onrender.com/cancel',
+            success_url: 'https://alloxa-backend.onrender.com/success',
+            cancel_url: 'https://alloxa-backend.onrender.com/cancel',
             metadata: {
                 vendorIds: JSON.stringify(vendorIds),
             },
