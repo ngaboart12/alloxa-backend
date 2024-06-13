@@ -47,3 +47,14 @@ const addCategory = async (req:Request,res:Response)=>{
     }
 
 }
+
+export const selectCategory = async(req:Request,res:Response)=>{
+    try {
+        const category = await CategoryModel.find()
+        res.status(200).json({data:{name:"sevelin"}})
+        
+    } catch (error) {
+        res.status(500).json({message: "Internal server error"})
+        
+    }
+}

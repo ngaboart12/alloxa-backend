@@ -112,7 +112,7 @@ export const updateProduct = async (req: Request, res: Response) => {
 
 export const selectProduct = async (req: Request, res: Response) => {
   try {
-    const product = await ProductModel.find().populate('Category').populate('Badge')
+    const product = await ProductModel.find()
     if(product && product.length >0){
       res.status(200).json({data:product})
     }

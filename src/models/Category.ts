@@ -1,16 +1,15 @@
-import mongoose from "mongoose";
-
+import mongoose from 'mongoose';
 
 interface CategoryModel {
-    name:string,
-    imageUrl:string
+    name: string;
+    imageUrl: string;
 }
 
 const CategorySchema = new mongoose.Schema({
-    name: {type: String,required:true},
-    imageUrl: {type: String,required:true},
-})
+    name: { type: String, required: true },
+    imageUrl: { type: String, required: true },
+});
 
+const CategoryModel = mongoose.models.Category || mongoose.model('Category', CategorySchema);
 
-const CategoryModel = mongoose.model('Category', CategorySchema)
-export default CategoryModel
+export default CategoryModel;

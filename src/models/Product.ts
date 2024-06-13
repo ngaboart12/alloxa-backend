@@ -14,12 +14,10 @@ interface ProductModel {
 const ProductSchema = new mongoose.Schema<ProductModel>({
     name: {type: String,required:true},
     category: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'Category'
+        type: String,required:true
     },
     badge:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: "Badge"
+        type: String,required:true
     },
     imageUrl: {type:String,required:true},
     quickAction: {type:Boolean,default:false},
