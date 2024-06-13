@@ -42,7 +42,7 @@ export const checkout = async (req:Request,res:Response)=>{
 
 export const webhook = async(req:Request,res:Response)=>{
     const sig:any = req.headers['stripe-signature'];
-    const webhookSecret:any = process.env.STRIPE_WEBHOOK_SECRET;
+    const webhookSecret:any = "whsec_KUYyC7TzJgrNT3nAAk1SBFBTp1ALt1AX";
 
     let event:any;
 
@@ -63,7 +63,7 @@ export const webhook = async(req:Request,res:Response)=>{
 
                 const order = createOrderObject(lineItems.data, vendorIds, session); // Create order object
 
-                await saveOrder(order); // Save order to your database
+                await saveOrder(order); 
 
                 console.log('Order created and saved successfully:', order);
 
